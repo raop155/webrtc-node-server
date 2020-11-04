@@ -5,8 +5,12 @@ const server = http.createServer(app);
 const socket = require('socket.io');
 const io = socket(server);
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 3000;
 const users = {};
+
+app.get('/', (req, res) => {
+  res.send('Hello world! ' + PORT);
+});
 
 io.on('connection', (socket) => {
   if (!users[socket.id]) {
