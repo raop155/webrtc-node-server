@@ -8,10 +8,6 @@ const io = socket(server);
 const PORT = process.env.PORT || 3000;
 const users = {};
 
-app.get('/', (req, res) => {
-  res.send('Hello world! ' + PORT);
-});
-
 io.on('connection', (socket) => {
   if (!users[socket.id]) {
     users[socket.id] = socket.id;
@@ -31,4 +27,4 @@ io.on('connection', (socket) => {
   });
 });
 
-server.listen(PORT, () => console.log('Server is running on port ' + PORT));
+server.listen(8000, () => console.log('Server is running on PORT ' + PORT));
